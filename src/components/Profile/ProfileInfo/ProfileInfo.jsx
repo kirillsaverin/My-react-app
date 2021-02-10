@@ -6,7 +6,7 @@ const ProfileInfo = () => {
     return (
         <div>
             < div >
-                <img src="https://img.pngio.com/funny-pngs-png-collections-at-sccprecat-funny-png-images-625_625.jpg" />
+                <img src="https://thewallpaper.co/wp-content/uploads/2020/07/monkeys-tongue-hd-face-humor-comedy-snout-funny-high-definition-monkey-drawing-animals-jpg.jpg" />
             </div >
             <div>
                 ava + description
