@@ -6,7 +6,17 @@ const MyPosts = (props) => {
 
 
 
-    let postsElement = props.postsData.map((post) => <Post message={post.message} id={post.id} />);
+    let postsElement = props.postsData.map((post) => <Post message={post.message} id={post.id} likesCount={post.likesCount} />);
+
+    let newPostElement = React.createRef();
+    // это ссылка на ref который мы назначили textarea.
+    let addPost = () => {
+        debugger;
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = '';
+    }
+    // addPost этa функция передается в onClick text принимает значения текущего current значения value у textarea.
 
     return (
 
@@ -14,10 +24,11 @@ const MyPosts = (props) => {
         <div className={s.item}>
             My post
             <div>
-                <textarea></textarea>
+                <textarea ref={newPostElement} ></textarea>
             </div>
             <div>
-                <button>Add post</button>
+                <button onClick={addPost} >Add post</button>
+                {/* addPost это колбэк переданный в функцию on onClick который будет вызываться по шелчку кнопки. всю логику мы выносим перед return. и функцию мі передаем без скобок (). */}
             </div>
             <div className={s.posts}>
 
