@@ -11,12 +11,14 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
     // это ссылка на ref который мы назначили textarea.
     let addPost = () => {
-        debugger;
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = '';
+        props.addPost();
     }
     // addPost этa функция передается в onClick text принимает значения текущего current значения value у textarea.
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
 
     return (
 
@@ -24,7 +26,7 @@ const MyPosts = (props) => {
         <div className={s.item}>
             My post
             <div>
-                <textarea ref={newPostElement} ></textarea>
+                <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText} />
             </div>
             <div>
                 <button onClick={addPost} >Add post</button>
